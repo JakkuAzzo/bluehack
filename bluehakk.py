@@ -94,7 +94,8 @@ async def main_menu():
         print("3. Run session stats")
         print("4. Static visualization (Last capture)")
         print("5. MITM Proxy (Windows/Mac)")
-        print("6. Exit")
+        print("6. bleak_discover (Scan for devices) Obsolete")
+        print("7. Exit")
         option = input("Choose an option: ").strip()
         
         if option == "1":
@@ -159,6 +160,12 @@ async def main_menu():
             else:
                 print("Unsupported...")
         elif option == "6":
+            print("Launching bleak_discover (scan for devices)...")
+            print("This feature is obsolete and may not work as expected.")
+            # Call the bleak_discover script directly.
+            subprocess.run(["python3", "obsolete/bleak_discover.py"])
+            print("bleak_discover completed.")
+        elif option == "7":
             print("Exiting Bluehakk CLI.")
             break
         else:

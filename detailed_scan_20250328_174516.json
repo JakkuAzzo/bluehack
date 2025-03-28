@@ -1,0 +1,260 @@
+[
+    {
+        "name": null,
+        "address": "571B0271-442B-E9D9-5B23-0D2A04C75C4E",
+        "manufacturer_data": {},
+        "service_uuids": []
+    },
+    {
+        "name": ".",
+        "address": "617EF8D8-FE2D-39D3-00E5-F1F7196639E6",
+        "manufacturer_data": {},
+        "service_uuids": []
+    },
+    {
+        "name": "SSKul_10165",
+        "address": "DABE7C8D-36B5-334F-3678-7910AFE3C81D",
+        "manufacturer_data": {},
+        "service_uuids": []
+    },
+    {
+        "name": null,
+        "address": "AE79F6B6-FF3B-DBD1-6449-B6D15035377B",
+        "manufacturer_data": {},
+        "service_uuids": []
+    },
+    {
+        "name": "SSKul_10268",
+        "address": "B49B5FB1-0E43-9EF7-DEC6-DC357F49455A",
+        "manufacturer_data": {},
+        "service_uuids": []
+    },
+    {
+        "name": null,
+        "address": "8070ED9D-D09A-B594-B9D9-B86EBF70FA23",
+        "manufacturer_data": {},
+        "service_uuids": []
+    },
+    {
+        "name": null,
+        "address": "10EA5CA5-B67D-D0B3-9494-586E95DC9446",
+        "manufacturer_data": {},
+        "service_uuids": []
+    },
+    {
+        "name": "iPhone",
+        "address": "D0DAC10F-6A7C-4243-5CBC-E3FF946C1933",
+        "manufacturer_data": {},
+        "service_uuids": []
+    },
+    {
+        "name": "SSKul_10089",
+        "address": "DC75A76D-5DB0-8F0D-F6BA-4FE7526D610C",
+        "manufacturer_data": {},
+        "service_uuids": []
+    },
+    {
+        "name": "SSKul_10168",
+        "address": "2712C974-0881-9970-6E2E-8DD29CE665EA",
+        "manufacturer_data": {},
+        "service_uuids": []
+    },
+    {
+        "name": null,
+        "address": "DB5C638C-67E3-1AD8-5933-841FC1D05E3C",
+        "manufacturer_data": {},
+        "service_uuids": []
+    },
+    {
+        "name": "Nathan Brown-Bennett\u2019s iPad",
+        "address": "445DD9EC-D451-3AC5-358C-FCE2C35FE2BF",
+        "manufacturer_data": {},
+        "service_uuids": []
+    },
+    {
+        "name": null,
+        "address": "70FD5726-C836-7343-2EE1-7CE26B83B577",
+        "manufacturer_data": {},
+        "service_uuids": []
+    },
+    {
+        "name": "SSKul_10267",
+        "address": "5B6E0049-DD91-E6ED-47E3-723CF8E0D75F",
+        "manufacturer_data": {},
+        "service_uuids": []
+    },
+    {
+        "name": null,
+        "address": "3F457566-8945-3E2C-D43B-7CF1F2E1E1B3",
+        "manufacturer_data": {},
+        "service_uuids": []
+    },
+    {
+        "name": null,
+        "address": "3E687ADF-799D-670B-D5F1-4265346FDC1A",
+        "manufacturer_data": {},
+        "service_uuids": []
+    },
+    {
+        "name": null,
+        "address": "4086D03E-33B7-6DB9-149A-E8AB61545FD2",
+        "manufacturer_data": {},
+        "service_uuids": []
+    },
+    {
+        "name": null,
+        "address": "4C69C3C5-B6AC-0608-78A0-6C07C068762C",
+        "manufacturer_data": {},
+        "service_uuids": []
+    },
+    {
+        "name": null,
+        "address": "11210DA4-D903-B5A7-D44B-222B1C410583",
+        "manufacturer_data": {},
+        "service_uuids": []
+    },
+    {
+        "name": "iPhone",
+        "address": "6CCD1549-B9F7-ED4B-7663-EF049100F6F8",
+        "manufacturer_data": {},
+        "service_uuids": []
+    },
+    {
+        "name": null,
+        "address": "7F40B48B-12D4-07A5-100F-20259FA82F59",
+        "manufacturer_data": {},
+        "service_uuids": []
+    },
+    {
+        "name": "iPhone",
+        "address": "F271BA1E-9743-41EB-B05B-C7E4493BB065",
+        "manufacturer_data": {},
+        "service_uuids": []
+    },
+    {
+        "name": "SSKul_10293",
+        "address": "D8DF71AD-C146-7C92-C5BC-413E84514D1B",
+        "manufacturer_data": {},
+        "service_uuids": []
+    },
+    {
+        "name": "SSKul_10090",
+        "address": "CA839DEF-C0FB-DF6D-3CD0-ECE3A1017C66",
+        "manufacturer_data": {},
+        "service_uuids": []
+    },
+    {
+        "name": null,
+        "address": "86C89B1A-F479-1475-0B43-E7988E5F6952",
+        "manufacturer_data": {},
+        "service_uuids": []
+    },
+    {
+        "name": null,
+        "address": "6A4645B4-5E37-E859-821E-520CD3B95999",
+        "manufacturer_data": {},
+        "service_uuids": []
+    },
+    {
+        "name": null,
+        "address": "42E05C8D-5A50-2B71-0602-EB1D6738C27F",
+        "manufacturer_data": {},
+        "service_uuids": []
+    },
+    {
+        "name": null,
+        "address": "66022D69-7FFD-BD60-61B8-394AA81DB579",
+        "manufacturer_data": {},
+        "service_uuids": []
+    },
+    {
+        "name": null,
+        "address": "52B33E15-7407-D364-F65B-DA478A2A31D4",
+        "manufacturer_data": {},
+        "service_uuids": []
+    },
+    {
+        "name": "SSKul_10294",
+        "address": "0398C5DA-53B5-6F61-594E-734EF0B335E4",
+        "manufacturer_data": {},
+        "service_uuids": []
+    },
+    {
+        "name": null,
+        "address": "F247C950-6FFF-FBA0-48D2-FEFF3BD488E9",
+        "manufacturer_data": {},
+        "service_uuids": []
+    },
+    {
+        "name": null,
+        "address": "D5898AC5-2ED8-44A0-C472-3D9BB30E3272",
+        "manufacturer_data": {},
+        "service_uuids": []
+    },
+    {
+        "name": null,
+        "address": "C0716F7E-EFE5-C3AA-311B-F1D8367827AA",
+        "manufacturer_data": {},
+        "service_uuids": []
+    },
+    {
+        "name": null,
+        "address": "6B738EC5-791A-B5FA-4513-FE1F7799FB43",
+        "manufacturer_data": {},
+        "service_uuids": []
+    },
+    {
+        "name": "iPhone",
+        "address": "337580BC-CB2F-CB29-D044-8849E429E4C6",
+        "manufacturer_data": {},
+        "service_uuids": []
+    },
+    {
+        "name": null,
+        "address": "3658407C-99B6-EB5D-31A6-9142B3C2ED25",
+        "manufacturer_data": {},
+        "service_uuids": []
+    },
+    {
+        "name": "SSKul_10166",
+        "address": "77968EDC-0560-6027-356C-DC36CE8ECE84",
+        "manufacturer_data": {},
+        "service_uuids": []
+    },
+    {
+        "name": "WH-CH720N",
+        "address": "BCF20ACE-A522-7F28-F015-B4175043E5C7",
+        "manufacturer_data": {},
+        "service_uuids": []
+    },
+    {
+        "name": null,
+        "address": "9FCBA3FF-406B-0BD4-BBA7-CE770CB0ADDE",
+        "manufacturer_data": {},
+        "service_uuids": []
+    },
+    {
+        "name": null,
+        "address": "91DEA13F-6971-2078-4AD5-C214F6122A9D",
+        "manufacturer_data": {},
+        "service_uuids": []
+    },
+    {
+        "name": null,
+        "address": "2E26962A-FCB2-0A6B-4B23-140EB6C7169C",
+        "manufacturer_data": {},
+        "service_uuids": []
+    },
+    {
+        "name": "SSKul_10167",
+        "address": "886257AA-5F82-91BA-E802-04AA23F9F085",
+        "manufacturer_data": {},
+        "service_uuids": []
+    },
+    {
+        "name": null,
+        "address": "E11CE7D7-DBE3-9A2C-9921-5F4D7C484683",
+        "manufacturer_data": {},
+        "service_uuids": []
+    }
+]

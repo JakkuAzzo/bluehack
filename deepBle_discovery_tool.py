@@ -11,13 +11,48 @@ from utility_scripts import check_bt_utilities as bt_util
 import bleak_stats
 import matplotlib.pyplot as plt
 
-import os
 import json
 from datetime import datetime
 
 # --- Custom YAML Loader to Preserve Hex Strings ---
 class HexStringLoader(yaml.SafeLoader):
     pass
+
+async def get_device_details(address):
+    details = []
+    try:
+        async with BleakClient(address) as client:
+            services = await client.get_services()
+            for service in services:
+                service_info = {
+                    "name": service.description,
+                    "uuid": service.uuid,
+                    "handle": service.handle,
+                    "characteristics": []
+                }
+                for char in service.characteristics:
+                    try:
+                        raw_val = await client.read_gatt_char(char.uuid)
+                        hex_val = raw_val.hex()
+                        # Attempt to decode raw_val to a string (ignoring errors)
+                        decoded = raw_val.decode(errors="ignore")
+                    except Exception as e:
+                        hex_val = "N/A"
+                        decoded = f"Error reading value: {e}"
+                    char_info = {
+                        "uuid": char.uuid,
+                        "properties": char.properties,
+                        "value": hex_val,
+                        "decoded": decoded,
+                        "extra": lookup_details(char.uuid, category="characteristic_uuids")
+                    }
+                    service_info["characteristics"].append(char_info)
+                # Look up extra detail for the service
+                service_info["extra"] = lookup_details(service.uuid, category="service_uuids")
+                details.append(service_info)
+    except Exception as e:
+        print(f"Failed to get services for {address}: {e}")
+    return details
 
 def save_scan_results(results, scan_type="scan"):
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
@@ -229,45 +264,65 @@ async def run_detailed_scan():
         device_info = {
             "name": device.name,
             "address": device.address,
+            "rssi": device.rssi,
+            "advertisement_data": {},
+            "manufacturer_data": {},
+            "service_uuids": [],
+            "detailed_services": []  # New field for GATT services details.
         }
-        if hasattr(device, 'advertisement_data') and device.advertisement_data:
-            manufacturer_data = device.advertisement_data.manufacturer_data
-            service_uuids = device.advertisement_data.service_uuids
+        ad = getattr(device, "advertisement_data", None)
+        if ad:
+            device_info["advertisement_data"] = {
+                "tx_power": ad.tx_power,
+                "service_uuids": ad.service_uuids,
+                "manufacturer_data": ad.manufacturer_data
+            }
+            device_info["manufacturer_data"] = ad.manufacturer_data
+            device_info["service_uuids"] = ad.service_uuids
         else:
-            manufacturer_data = {}
-            service_uuids = []
-            print("Warning: advertisement_data not available for device", device.address)
-        device_info["manufacturer_data"] = manufacturer_data
-        device_info["service_uuids"] = service_uuids
-        results.append(device_info)
+            device_info["manufacturer_data"] = device.metadata.get("manufacturer_data", {})
+        
         print(f"\nDevice: {device.name} - {device.address}")
-        if manufacturer_data:
-            print("  Manufacturer data (raw):", manufacturer_data)
-            for key, val in manufacturer_data.items():
-                hex_key = f"0x{key:04X}"
-                print(f"  Manufacturer key {key} as hex: {hex_key} -> value: {val.hex()}")
-                extra = lookup_details(key)
-                if extra:
-                    print(f"    Extra Detail for {hex_key}: {extra}")
-            chipset = decode_manufacturer_data(manufacturer_data)
-            print(f"  ↳ Detected Chipset: {chipset}")
+        # Process Manufacturer Data
+        if device_info["manufacturer_data"]:
+            print("  Manufacturer data (raw):", device_info["manufacturer_data"])
+            for key, val in device_info["manufacturer_data"].items():
+                try:
+                    hex_key = f"0x{int(key):04X}"
+                except Exception:
+                    hex_key = key
+                detail = lookup_details(hex_key, category="company_identifiers")
+                print(f"    {hex_key} -> {detail}")
         else:
-            print("  ↳ Manufacturer data not available; chipset Unknown.")
-        if service_uuids:
-            print("  ↳ Services: ", service_uuids)
-            for uuid in service_uuids:
+            print("  Manufacturer data not available; chipset Unknown.")
+        # Process Service UUIDs from advertisement
+        if device_info["service_uuids"]:
+            print("  Advertised Services:", device_info["service_uuids"])
+            for uuid in device_info["service_uuids"]:
                 extra = lookup_details(uuid, category="service_uuids")
                 if extra:
                     print(f"    Service {uuid} Detail: {extra}")
         else:
-            print("  ↳ No service UUIDs available.")
-        cod = device.metadata.get("class_of_device")
-        if cod is not None:
-            print(decode_class_of_device(cod))
+            print("  No advertised service UUIDs available.")
+
+        # Connect and get full GATT service details.
+        details = await get_device_details(device.address)
+        device_info["detailed_services"] = details
+        if details:
+            for service in details:
+                print(f"  - Service: {service.get('name', 'Unknown')} (UUID: {service.get('uuid')}, Handle: {service.get('handle')})")
+                if service.get("extra"):
+                    print(f"       Extra: {service.get('extra')}")
+                for char in service.get("characteristics", []):
+                    print(f"      - Characteristic: {char.get('uuid')}, Value: {char.get('value')}, Decoded: {char.get('decoded')}")
+                    if char.get("extra"):
+                        print(f"           Extra: {char.get('extra')}")
         else:
-            print("  ↳ Class of Device not available.")
-        print("  Full device details:", device)
-    # Save results to a json file.
+            print("  No detailed services obtained.")
+        
+        # Append the enriched device info
+        results.append(device_info)
+    # Save results to a JSON file.
     save_scan_results(results, scan_type="detailed_scan")
 
 # --- Live Scan Functions ---
