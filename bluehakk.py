@@ -84,10 +84,9 @@ def visualize_vuln_results(results):
     plt.show()
 
 async def main_menu():
-    if not bt_util.check_and_setup():
+    if not bt_util.check_and_setup(os.name):
         return
-    bt_util.run_os_monitoring()
-    
+    bt_util.run_os_monitoring(os.name)
     while True:
         print("\n--- Bluehakk CLI Menu ---")
         print("1. Detailed Scan (DeepBle)")
@@ -150,4 +149,10 @@ if __name__ == "__main__":
     else:
         print("Unsupported OS. Some features may not work.")
         subprocess.run(["pip", "install", "-r", "requirements.txt"])
+    # Update the Bluetooth SIG JSON files only if the folder doesn't exist
+    if not os.path.isdir("bluetooth-sig-public-jsons"):
+        print("Folder 'bluetooth-sig-public-jsons' not found. Updating Bluetooth SIG JSON files...")
+        subprocess.run(["python3", "utility_scripts/update_bluetooth_sig_jsons.py"])
+    else:
+        print("Folder 'bluetooth-sig-public-jsons' found. Skipping update.")
     asyncio.get_event_loop().run_until_complete(main_menu())

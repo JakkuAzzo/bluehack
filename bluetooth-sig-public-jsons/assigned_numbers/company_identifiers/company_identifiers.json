@@ -1,6 +1,114 @@
 {
   "company_identifiers": [
     {
+      "value": "0x0EC6",
+      "name": "AuthGate B.V."
+    },
+    {
+      "value": "0x0EC5",
+      "name": "Alibaba (China) Co., Ltd."
+    },
+    {
+      "value": "0x0EC4",
+      "name": "PACIFIC MARINE BATTERIES PTY. LIMITED"
+    },
+    {
+      "value": "0x0EC3",
+      "name": "Herschel Infrared Ltd"
+    },
+    {
+      "value": "0x0EC2",
+      "name": "High Entropy, LLC"
+    },
+    {
+      "value": "0x0EC1",
+      "name": "Crossdoor"
+    },
+    {
+      "value": "0x0EC0",
+      "name": "WEST inx Ltd."
+    },
+    {
+      "value": "0x0EBF",
+      "name": "Schulte-Schlagbaum AG"
+    },
+    {
+      "value": "0x0EBE",
+      "name": "Deity Acoustic Technology Co."
+    },
+    {
+      "value": "0x0EBD",
+      "name": "Tongfang Health Technology (Beijing) Co., Ltd."
+    },
+    {
+      "value": "0x0EBC",
+      "name": "GP Acoustics International Limited"
+    },
+    {
+      "value": "0x0EBB",
+      "name": "Asahi Denso Co.,Ltd."
+    },
+    {
+      "value": "0x0EBA",
+      "name": "THERMY LTD"
+    },
+    {
+      "value": "0x0EB9",
+      "name": "egojin co,.ltd"
+    },
+    {
+      "value": "0x0EB8",
+      "name": "PARAGON ID"
+    },
+    {
+      "value": "0x0EB7",
+      "name": "Embedded Solutions LLC"
+    },
+    {
+      "value": "0x0EB6",
+      "name": "Server Products, Inc."
+    },
+    {
+      "value": "0x0EB5",
+      "name": "Preseed Japan Corporation"
+    },
+    {
+      "value": "0x0EB4",
+      "name": "BLUEFIN DATA, LLC"
+    },
+    {
+      "value": "0x0EB3",
+      "name": "Zucchetti Axess"
+    },
+    {
+      "value": "0x0EB2",
+      "name": "PRADCO Outdoor Brands"
+    },
+    {
+      "value": "0x0EB1",
+      "name": "WearNex Limited"
+    },
+    {
+      "value": "0x0EB0",
+      "name": "FactorySense"
+    },
+    {
+      "value": "0x0EAF",
+      "name": "Unfolded Circle ApS"
+    },
+    {
+      "value": "0x0EAE",
+      "name": "BHClears Microelectronics (Shanghai) Co., Ltd."
+    },
+    {
+      "value": "0x0EAD",
+      "name": "OPTRON Co., Ltd."
+    },
+    {
+      "value": "0x0EAC",
+      "name": "Dynetrex Solutions Inc."
+    },
+    {
       "value": "0x0EAB",
       "name": "STEYR Sport GmbH"
     },
@@ -10,7 +118,7 @@
     },
     {
       "value": "0x0EA9",
-      "name": "Makichie co., ltd."
+      "name": "Makichie Co., Ltd."
     },
     {
       "value": "0x0EA8",
@@ -541,7 +649,7 @@
       "name": "Hangzhou Hikvision Digital Technology Co., Ltd."
     },
     {
-      "value": "0x0E24",
+      "value": "0x0E23",
       "name": "MS kajak7 UG (limited liability)"
     },
     {
@@ -14070,7 +14178,7 @@
     },
     {
       "value": "0x00EA",
-      "name": "www.vtracksystems.com"
+      "name": "Nielsen-Kellerman"
     },
     {
       "value": "0x00E9",

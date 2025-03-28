@@ -7,10 +7,20 @@ import json
 from datetime import datetime
 from bleak import BleakScanner
 
+
+
 # ----------------- Dependency Checks -----------------
 def is_tool_installed(name):
-    """Check if a tool is in PATH."""
-    return shutil.which(name) is not None
+    """Check if a tool is in PATH, works on Windows, macOS and Linux."""
+    tool_path = shutil.which(name)
+    if tool_path is not None:
+        return True
+    # Fallback search in common directories on Linux
+    for path in ['/usr/bin', '/bin', '/usr/local/bin']:
+        full_path = os.path.join(path, name)
+        if os.path.exists(full_path) and os.access(full_path, os.X_OK):
+            return True
+    return False
 
 def ensure_wireshark_in_path():
     """
@@ -73,20 +83,24 @@ def check_macos_dependencies():
 
 def check_windows_dependencies():
     errors = []
-    if not (is_tool_installed("Wireshark.exe") or is_tool_installed("wireshark")):
-        errors.append("Wireshark is not installed or not in your PATH. Please install Wireshark.")
+    if not is_tool_installed("Wireshark.exe"):
+        possible_paths = [
+            "C:\\Program Files\\Wireshark\\Wireshark.exe",
+            "C:\\Program Files (x86)\\Wireshark\\Wireshark.exe"
+        ]
+        if not any(os.path.exists(path) for path in possible_paths):
+            errors.append("Wireshark is not installed or not accessible. Please install Wireshark.")
     btpack_path = os.path.join("utility_scripts", "BluetoothToolforWindows", "BluetoothTestPlatformPack-1.14.0.msi")
     if not os.path.exists(btpack_path):
         errors.append(f"Bluetooth Test Platform Pack MSI not found: {btpack_path}")
     return errors
 
-def check_and_setup():
-    platform = sys.platform
+def check_and_setup(os_type):
     errors = []
-    if platform == "darwin":
+    if os_type == "osx":
         print("Checking dependencies for macOS...")
         errors = check_macos_dependencies()
-    elif platform.startswith("win"):
+    elif os_type == "nt":
         print("Checking dependencies for Windows...")
         errors = check_windows_dependencies()
     else:
@@ -102,26 +116,21 @@ def check_and_setup():
     else:
         print("All required dependencies are installed and configured.")
         return True
-
 # ----------------- OS-Specific Monitoring -----------------
-def run_os_monitoring():
-    platform = sys.platform
-    if platform == "darwin":
+def run_os_monitoring(os_type):
+    if os_type == "osx":
         print("Launching Wireshark to analyze the Bluetooth interface...")
         try:
             subprocess.Popen(["open", "-a", "Wireshark"])
         except Exception as e:
             print(f"Failed to launch Wireshark: {e}")
-        # Launch PacketLogger (typically located in /Applications/Utilities)
         print("Launching PacketLogger to monitor the Bluetooth interface...")
         try:
             subprocess.Popen(["open", "-a", "PacketLogger"])
         except Exception as e:
             print(f"Failed to launch PacketLogger: {e}")
-        # (Stub) Configure Bluetooth interface for monitoring.
         print("Configuring Bluetooth interface for monitoring (stub)...")
-        # For example, you might run a shell script or system command here.
-    elif platform.startswith("win"):
+    elif os_type == "nt":
         bt_tool_dir = os.path.join("utility_scripts", "BluetoothToolforWindows")
         btvs_exe = os.path.join(bt_tool_dir, "btvs.exe")
         if not os.path.exists(btvs_exe):
@@ -132,7 +141,6 @@ def run_os_monitoring():
             subprocess.Popen([btvs_exe, "-Mode", "Wireshark"], cwd=bt_tool_dir)
         except Exception as e:
             print(f"Failed to launch btvs.exe: {e}")
-        # Attempt to launch btp.exe to configure the Bluetooth interface.
         btp_exe = os.path.join(bt_tool_dir, "btp.exe")
         if os.path.exists(btp_exe):
             print("Launching btp.exe to configure the Bluetooth interface for monitoring...")
