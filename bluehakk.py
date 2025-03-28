@@ -121,14 +121,41 @@ async def main_menu():
             print("Generating static visualization from last captured session...")
             bt_util.visualize_results(live=False)
         elif option == "5":
+            print("Launching MITM Proxy, leave blank or enter 'q', 'quit' or 'exit' to go back to menu...")
             if (os.name == 'nt'):
                 print("Launching Windows MITM Proxy...")
                 target_address = input("Enter the target BLE device address: ").strip()
-                subprocess.run(["python3", "win_mitm.py", target_address])
+                if not target_address:
+                    print("No address provided. Exiting...")
+                    continue
+                elif target_address == 'q':
+                    print("Exiting...")
+                    continue
+                elif target_address == 'quit':
+                    print("Exiting...")
+                    continue
+                elif target_address == 'exit':
+                    print("Exiting...")
+                    continue
+                else:
+                    subprocess.run(["python3", "win_mitm.py", target_address])
             elif (os.name == 'osx'):
                 print("Launching Mac-in-the-Middle Proxy...")
                 target_address = input("Enter the target BLE device address: ").strip()
-                subprocess.run(["python3", "mac_mitm.py", target_address])
+                if not target_address:
+                    print("No address provided. Exiting...")
+                    continue
+                elif target_address == 'q':
+                    print("Exiting...")
+                    continue
+                elif target_address == 'quit':
+                    print("Exiting...")
+                    continue
+                elif target_address == 'exit':
+                    print("Exiting...")
+                    continue
+                else:
+                    subprocess.run(["python3", "mac_mitm.py", target_address])
             else:
                 print("Unsupported...")
         elif option == "6":
