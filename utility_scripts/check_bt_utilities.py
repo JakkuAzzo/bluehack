@@ -244,7 +244,16 @@ def visualize_results(live=False):
         bleak_stats.live_update_stats("filtered_scan_results.json")
     else:
         print("Generating visualization from last captured session...")
-        data_file = "capture.btsnoop" if sys.platform == "darwin" else "filtered_scan_results.json"
+        # Determine the data file based on the platform.
+        if sys.platform == "darwin":
+            data_file = "capture.btsnoop"
+        else:
+            data_file = "filtered_scan_results.json"
+        
+        if not os.path.exists(data_file):
+            print(f"Data file '{data_file}' not found. Cannot generate static visualization.")
+            return
+        
         with open(data_file, "r") as f:
             try:
                 data = json.load(f)

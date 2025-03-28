@@ -15,7 +15,8 @@ async def get_device_details(address):
                 details.append({
                     "name": service.description,
                     "uuid": service.uuid,
-                    "characteristics": [char.uuid for char in service.characteristics]
+                    "characteristics": [char.uuid for char in service.characteristics],
+                    "handle": service.handle,
                 })
     except Exception as e:
         print(f"Failed to get services for {address}: {e}")
@@ -36,7 +37,7 @@ async def main():
                 service_name = service.get("name", "Unknown")
                 service_uuid = service.get("uuid", "N/A")
                 characteristics = service.get("characteristics", [])
-                print(f"   - Service: {service_name}, UUID: {service_uuid}, Characteristics: {characteristics}")
+                print(f"   - Service: {service_name}, UUID: {service_uuid}, Characteristics: {characteristics}, Handle: {service.get('handle', 'N/A')} ")
         else:
             print("   No additional services found.")
 

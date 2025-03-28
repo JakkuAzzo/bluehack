@@ -11,9 +11,23 @@ from utility_scripts import check_bt_utilities as bt_util
 import bleak_stats
 import matplotlib.pyplot as plt
 
+import os
+import json
+from datetime import datetime
+
 # --- Custom YAML Loader to Preserve Hex Strings ---
 class HexStringLoader(yaml.SafeLoader):
     pass
+
+def save_scan_results(results, scan_type="scan"):
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    filename = f"{scan_type}_{timestamp}.json"
+    try:
+        with open(filename, "w") as f:
+            json.dump(results, f, indent=4)
+        print(f"Scan results saved to {filename}")
+    except Exception as e:
+        print(f"Error saving scan results to {filename}: {e}")
 
 def hex_int_constructor(loader, node):
     value = loader.construct_scalar(node)
@@ -27,24 +41,53 @@ def hex_int_constructor(loader, node):
 HexStringLoader.add_constructor('tag:yaml.org,2002:int', hex_int_constructor)
 
 # --- Basic Reference Loaders ---
-def load_company_identifiers(json_path):
-    try:
-        with open(json_path, 'r') as f:
-            data = json.load(f)
-            lookup = {}
-            # Assume each entry has keys: value, name, description, identifier, etc.
-            for entry in data.get("company_identifiers", []):
-                key = entry.get("value")  # keep as string (e.g. "0x004C")
-                lookup[key] = {
-                    "name": entry.get("name"),
-                    "description": entry.get("description", "No description available"),
-                    "identifier": entry.get("identifier", key)
-                    # add any additional fields here.
-                }
-            return lookup
-    except Exception as e:
-        print(f"Error loading JSON from {json_path}: {e}")
-        return {}
+def load_company_identifiers(folder_path='bluetooth-sig-public-jsons'):
+    """
+    Loads and aggregates JSON data from the Bluetooth SIG folder.
+    This includes details from:
+      - company_identifiers
+      - profiled_and_services
+      - service_discovery
+      - uuids
+
+    Returns a dictionary with keys for each folder. Each value is a dictionary
+    mapping identifiers (e.g. "0x004C") to their detailed info.
+    """
+
+    folders = ['company_identifiers', 'profiled_and_services', 'service_discovery', 'uuids']
+    aggregated_data = {folder: {} for folder in folders}
+    
+    if not os.path.exists(folder_path):
+        print(f"Folder {folder_path} not found.")
+        return aggregated_data
+
+    for folder in folders:
+        subfolder_path = os.path.join(folder_path, folder)
+        if not os.path.exists(subfolder_path):
+            print(f"Subfolder {subfolder_path} not found.")
+            continue
+
+        for filename in os.listdir(subfolder_path):
+            if not filename.endswith('.json'):
+                continue
+
+            file_path = os.path.join(subfolder_path, filename)
+            try:
+                with open(file_path, 'r') as f:
+                    data = json.load(f)
+                    # Data may be a dict or a list; merge accordingly.
+                    if isinstance(data, dict):
+                        for key, value in data.items():
+                            aggregated_data[folder][key] = value
+                    elif isinstance(data, list):
+                        for item in data:
+                            identifier = item.get('identifier')
+                            if identifier:
+                                aggregated_data[folder][identifier] = item
+            except Exception as e:
+                print(f"Error parsing {file_path}: {e}")
+
+    return aggregated_data
 
 def load_class_of_device(yaml_path):
     try:
@@ -144,26 +187,36 @@ async def run_quick_scan():
         print("No BLE devices found.")
         return
     print("\nRunning Quick Scan:")
+    results = []
     for device in devices:
-        print(f"\nDevice: {device.name} - {device.address}")
+        device_info = {
+            "name": device.name,
+            "address": device.address,
+            "rssi": device.rssi,
+            "metadata": device.metadata,
+            "manufacturer_data": {},
+            "service_uuids": []
+        }
         ad = getattr(device, "advertisement_data", None)
         if ad:
-            manufacturer_data = ad.manufacturer_data
+            device_info["manufacturer_data"] = ad.manufacturer_data
+            # Optionally include service UUIDs
+            device_info["service_uuids"] = ad.service_uuids
         else:
-            manufacturer_data = device.metadata.get("manufacturer_data", {})
-        if manufacturer_data:
-            print("  Manufacturer data (raw):", manufacturer_data)
-            for key, val in manufacturer_data.items():
-                print(f"  Manufacturer key {key} as hex: 0x{key:04X} -> value: {val.hex()}")
-            chipset = decode_manufacturer_data(manufacturer_data)
-            print(f"  ↳ Detected Chipset: {chipset}")
+            device_info["manufacturer_data"] = device.metadata.get("manufacturer_data", {})
+        results.append(device_info)
+        print(f"\nDevice: {device.name} - {device.address}")
+        if device_info["manufacturer_data"]:
+            print("  Manufacturer data (raw):", device_info["manufacturer_data"])
         else:
-            print("  ↳ Manufacturer data not available; chipset Unknown.")
+            print("  Manufacturer data not available; chipset Unknown.")
         cod = device.metadata.get("class_of_device")
         if cod is not None:
             print(decode_class_of_device(cod))
         else:
-            print("  ↳ Class of Device not available.")
+            print("  Class of Device not available.")
+    # Save results to a json file.
+    save_scan_results(results, scan_type="quick_scan")
 
 async def run_detailed_scan():
     devices = await BleakScanner.discover()
@@ -171,8 +224,12 @@ async def run_detailed_scan():
         print("No BLE devices found.")
         return
     print("\nRunning Detailed Scan:")
+    results = []
     for device in devices:
-        print(f"\nDevice: {device.name} - {device.address}")
+        device_info = {
+            "name": device.name,
+            "address": device.address,
+        }
         if hasattr(device, 'advertisement_data') and device.advertisement_data:
             manufacturer_data = device.advertisement_data.manufacturer_data
             service_uuids = device.advertisement_data.service_uuids
@@ -180,6 +237,10 @@ async def run_detailed_scan():
             manufacturer_data = {}
             service_uuids = []
             print("Warning: advertisement_data not available for device", device.address)
+        device_info["manufacturer_data"] = manufacturer_data
+        device_info["service_uuids"] = service_uuids
+        results.append(device_info)
+        print(f"\nDevice: {device.name} - {device.address}")
         if manufacturer_data:
             print("  Manufacturer data (raw):", manufacturer_data)
             for key, val in manufacturer_data.items():
@@ -206,6 +267,8 @@ async def run_detailed_scan():
         else:
             print("  ↳ Class of Device not available.")
         print("  Full device details:", device)
+    # Save results to a json file.
+    save_scan_results(results, scan_type="detailed_scan")
 
 # --- Live Scan Functions ---
 
@@ -231,7 +294,12 @@ async def run_live_scan():
                     live_scan_data["devices"][addr] = {
                         "name": device.name,
                         "address": addr,
-                        "rssi": device.rssi
+                        "rssi": device.rssi,
+                        "tx_power": device.metadata.get("tx_power", None),
+                        "advertisement_interval_ms": device.metadata.get("advertisement_interval_ms", None),
+                        "manufacturer_data": device.metadata.get("manufacturer_data", {}),
+                        "service_uuids": device.metadata.get("service_uuids", []),
+                        "distance_m": None
                     }
                 else:
                     live_scan_data["devices"][addr]["rssi"] = device.rssi

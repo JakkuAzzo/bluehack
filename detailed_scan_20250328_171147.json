@@ -1,0 +1,488 @@
+[
+    {
+        "name": null,
+        "address": "D81A4FD9-962B-0ECE-CB6B-BC6A23360ACF",
+        "manufacturer_data": {},
+        "service_uuids": []
+    },
+    {
+        "name": null,
+        "address": "789D35DC-BB88-E8FF-3C95-8B42FE96251D",
+        "manufacturer_data": {},
+        "service_uuids": []
+    },
+    {
+        "name": null,
+        "address": "DEE8E982-9494-1A8A-B3E4-E277812E3657",
+        "manufacturer_data": {},
+        "service_uuids": []
+    },
+    {
+        "name": null,
+        "address": "472C3156-4026-FD55-87A2-B4FB1E9ED909",
+        "manufacturer_data": {},
+        "service_uuids": []
+    },
+    {
+        "name": null,
+        "address": "86B8FA93-ACE6-D50B-640A-B9F24A50B5D4",
+        "manufacturer_data": {},
+        "service_uuids": []
+    },
+    {
+        "name": null,
+        "address": "B065E124-3720-6F52-44D9-4406C472AB77",
+        "manufacturer_data": {},
+        "service_uuids": []
+    },
+    {
+        "name": null,
+        "address": "12B139F7-C335-EFC9-3C5E-64B1603AE9D1",
+        "manufacturer_data": {},
+        "service_uuids": []
+    },
+    {
+        "name": null,
+        "address": "15302609-D7E0-6311-E217-BB1DAABCB8D3",
+        "manufacturer_data": {},
+        "service_uuids": []
+    },
+    {
+        "name": null,
+        "address": "525504BE-74F4-DA39-BA11-FE56ACE390E2",
+        "manufacturer_data": {},
+        "service_uuids": []
+    },
+    {
+        "name": null,
+        "address": "E8751CEE-7CA2-32D2-6F5E-03D77B1140C6",
+        "manufacturer_data": {},
+        "service_uuids": []
+    },
+    {
+        "name": null,
+        "address": "618E79F4-5BBF-BFCF-E842-B9C812B79452",
+        "manufacturer_data": {},
+        "service_uuids": []
+    },
+    {
+        "name": null,
+        "address": "D83DD430-4E58-9B5F-5219-82CAB4BD620B",
+        "manufacturer_data": {},
+        "service_uuids": []
+    },
+    {
+        "name": null,
+        "address": "FCD6EE8C-8098-BDF6-BC5F-3E7A58E2CFA6",
+        "manufacturer_data": {},
+        "service_uuids": []
+    },
+    {
+        "name": null,
+        "address": "B2E315B1-8DD8-D3BF-16C7-31D1FA834E45",
+        "manufacturer_data": {},
+        "service_uuids": []
+    },
+    {
+        "name": null,
+        "address": "1906FD63-BFE2-FCC4-3F2F-4AAA3FB4A836",
+        "manufacturer_data": {},
+        "service_uuids": []
+    },
+    {
+        "name": null,
+        "address": "295D9E88-C9D1-1E20-72B3-DE1FE8D52BCE",
+        "manufacturer_data": {},
+        "service_uuids": []
+    },
+    {
+        "name": null,
+        "address": "14147920-46F4-6631-49CA-D494D57EE415",
+        "manufacturer_data": {},
+        "service_uuids": []
+    },
+    {
+        "name": "SSKul_10294",
+        "address": "0398C5DA-53B5-6F61-594E-734EF0B335E4",
+        "manufacturer_data": {},
+        "service_uuids": []
+    },
+    {
+        "name": null,
+        "address": "6F5FD0EF-D9BF-90F3-4686-2B165AA682E3",
+        "manufacturer_data": {},
+        "service_uuids": []
+    },
+    {
+        "name": null,
+        "address": "106DCB68-85A2-7921-A455-2790CFE85310",
+        "manufacturer_data": {},
+        "service_uuids": []
+    },
+    {
+        "name": null,
+        "address": "31431D07-BFDA-38E2-C46F-006F9EBE12B9",
+        "manufacturer_data": {},
+        "service_uuids": []
+    },
+    {
+        "name": null,
+        "address": "A825157B-E037-C696-310B-0F6020B8FBEA",
+        "manufacturer_data": {},
+        "service_uuids": []
+    },
+    {
+        "name": null,
+        "address": "DFEE4336-507A-2D61-88B5-F7E6495441C3",
+        "manufacturer_data": {},
+        "service_uuids": []
+    },
+    {
+        "name": "Nathan Brown-Bennett\u2019s iPad",
+        "address": "445DD9EC-D451-3AC5-358C-FCE2C35FE2BF",
+        "manufacturer_data": {},
+        "service_uuids": []
+    },
+    {
+        "name": null,
+        "address": "30E58F3A-0412-BC67-7D65-FD9FCD92ACB3",
+        "manufacturer_data": {},
+        "service_uuids": []
+    },
+    {
+        "name": null,
+        "address": "9A73B84F-EF72-4692-AB55-C8F90725AA8F",
+        "manufacturer_data": {},
+        "service_uuids": []
+    },
+    {
+        "name": "SSKul_10168",
+        "address": "2712C974-0881-9970-6E2E-8DD29CE665EA",
+        "manufacturer_data": {},
+        "service_uuids": []
+    },
+    {
+        "name": null,
+        "address": "F3B9A2F6-8CAC-F0D3-90F4-43B7A125FFCD",
+        "manufacturer_data": {},
+        "service_uuids": []
+    },
+    {
+        "name": null,
+        "address": "61668783-827C-4A6D-9173-007603A0FB6A",
+        "manufacturer_data": {},
+        "service_uuids": []
+    },
+    {
+        "name": null,
+        "address": "C55EFE7E-F236-3F42-D17E-3BB58018499C",
+        "manufacturer_data": {},
+        "service_uuids": []
+    },
+    {
+        "name": null,
+        "address": "F337C7FE-CB76-F7D3-B0DC-3611241F4971",
+        "manufacturer_data": {},
+        "service_uuids": []
+    },
+    {
+        "name": null,
+        "address": "597A4473-1442-95FB-0518-CE8CFAEC5CAF",
+        "manufacturer_data": {},
+        "service_uuids": []
+    },
+    {
+        "name": "SSKul_10166",
+        "address": "77968EDC-0560-6027-356C-DC36CE8ECE84",
+        "manufacturer_data": {},
+        "service_uuids": []
+    },
+    {
+        "name": null,
+        "address": "5B55298A-31D6-CC76-94B5-58802789121B",
+        "manufacturer_data": {},
+        "service_uuids": []
+    },
+    {
+        "name": "SSKul_10211",
+        "address": "20C049B7-E465-132E-9A15-A17675E6FF76",
+        "manufacturer_data": {},
+        "service_uuids": []
+    },
+    {
+        "name": null,
+        "address": "EF90F42E-3EEE-AE50-A826-BBF91B13CF30",
+        "manufacturer_data": {},
+        "service_uuids": []
+    },
+    {
+        "name": null,
+        "address": "A6CFB5F6-FC00-F60C-980C-69E8D5A7BCD3",
+        "manufacturer_data": {},
+        "service_uuids": []
+    },
+    {
+        "name": null,
+        "address": "B735F95B-8DB5-19DE-BFD4-AB70D03784CF",
+        "manufacturer_data": {},
+        "service_uuids": []
+    },
+    {
+        "name": null,
+        "address": "22490CC7-44D6-AFE8-D2A3-7D1239CF6DAA",
+        "manufacturer_data": {},
+        "service_uuids": []
+    },
+    {
+        "name": null,
+        "address": "5C95E696-D816-1472-7A99-3C41721D627E",
+        "manufacturer_data": {},
+        "service_uuids": []
+    },
+    {
+        "name": null,
+        "address": "22DEEB30-967B-2A92-4296-E9801AD7690F",
+        "manufacturer_data": {},
+        "service_uuids": []
+    },
+    {
+        "name": null,
+        "address": "778AF686-72DA-55E9-623A-BAD03427E94C",
+        "manufacturer_data": {},
+        "service_uuids": []
+    },
+    {
+        "name": "SSKul_10165",
+        "address": "DABE7C8D-36B5-334F-3678-7910AFE3C81D",
+        "manufacturer_data": {},
+        "service_uuids": []
+    },
+    {
+        "name": ".",
+        "address": "617EF8D8-FE2D-39D3-00E5-F1F7196639E6",
+        "manufacturer_data": {},
+        "service_uuids": []
+    },
+    {
+        "name": null,
+        "address": "85916A68-5737-D498-5A3C-39D830CD087F",
+        "manufacturer_data": {},
+        "service_uuids": []
+    },
+    {
+        "name": null,
+        "address": "61A7ECD3-A1FF-A563-7F36-C84395C7C349",
+        "manufacturer_data": {},
+        "service_uuids": []
+    },
+    {
+        "name": null,
+        "address": "67285952-2CCD-6B79-F912-36BF30326E62",
+        "manufacturer_data": {},
+        "service_uuids": []
+    },
+    {
+        "name": null,
+        "address": "C7483756-42D7-60D8-B426-BCFD587069F5",
+        "manufacturer_data": {},
+        "service_uuids": []
+    },
+    {
+        "name": null,
+        "address": "A0C9CB39-CFDD-CE54-566E-D82EE362A0E7",
+        "manufacturer_data": {},
+        "service_uuids": []
+    },
+    {
+        "name": null,
+        "address": "0105C663-FF2A-1ADD-CCB3-DAAA874E16E1",
+        "manufacturer_data": {},
+        "service_uuids": []
+    },
+    {
+        "name": "SSKul_10293",
+        "address": "D8DF71AD-C146-7C92-C5BC-413E84514D1B",
+        "manufacturer_data": {},
+        "service_uuids": []
+    },
+    {
+        "name": null,
+        "address": "CDF1A029-9B6F-9710-6B35-193C36B0C678",
+        "manufacturer_data": {},
+        "service_uuids": []
+    },
+    {
+        "name": null,
+        "address": "650E1937-5957-CD25-5034-3BFFA76B36A9",
+        "manufacturer_data": {},
+        "service_uuids": []
+    },
+    {
+        "name": null,
+        "address": "ED5C0F34-5037-8E28-04F1-7B198E4B99C7",
+        "manufacturer_data": {},
+        "service_uuids": []
+    },
+    {
+        "name": "Nathan\u2019s AirPods",
+        "address": "A598AF50-9FA6-658E-1833-2CEADBAF703F",
+        "manufacturer_data": {},
+        "service_uuids": []
+    },
+    {
+        "name": null,
+        "address": "E3D0B965-F08E-0BFC-1A51-2C1BA16CBE17",
+        "manufacturer_data": {},
+        "service_uuids": []
+    },
+    {
+        "name": null,
+        "address": "AD789A5D-69D4-6B7B-2EF4-D3BF6FA9B703",
+        "manufacturer_data": {},
+        "service_uuids": []
+    },
+    {
+        "name": null,
+        "address": "687956CC-E771-F74E-4141-EBDB4A1011D5",
+        "manufacturer_data": {},
+        "service_uuids": []
+    },
+    {
+        "name": null,
+        "address": "FD8716D1-4605-FB5E-BDB6-D3D1B3948A15",
+        "manufacturer_data": {},
+        "service_uuids": []
+    },
+    {
+        "name": null,
+        "address": "A181295C-3E85-BB63-791E-3B89FAFFCAE7",
+        "manufacturer_data": {},
+        "service_uuids": []
+    },
+    {
+        "name": null,
+        "address": "0F28A48E-7C2F-95F1-7EF9-E0656F286996",
+        "manufacturer_data": {},
+        "service_uuids": []
+    },
+    {
+        "name": null,
+        "address": "1078FFE2-3180-3104-8060-665579FCF265",
+        "manufacturer_data": {},
+        "service_uuids": []
+    },
+    {
+        "name": "SSKul_10167",
+        "address": "886257AA-5F82-91BA-E802-04AA23F9F085",
+        "manufacturer_data": {},
+        "service_uuids": []
+    },
+    {
+        "name": null,
+        "address": "B81DDC1B-BEA2-4098-670E-F232FDF069A1",
+        "manufacturer_data": {},
+        "service_uuids": []
+    },
+    {
+        "name": null,
+        "address": "DAD4D22F-7126-CB30-FEF1-8C859FB0585C",
+        "manufacturer_data": {},
+        "service_uuids": []
+    },
+    {
+        "name": null,
+        "address": "F4CE7BC6-ECA8-97BD-E5E6-FC04FBC9B74F",
+        "manufacturer_data": {},
+        "service_uuids": []
+    },
+    {
+        "name": null,
+        "address": "7BAA6A72-0F61-3664-F9AA-446155CC2BCF",
+        "manufacturer_data": {},
+        "service_uuids": []
+    },
+    {
+        "name": null,
+        "address": "7D18FF55-2FE1-4528-FEBB-E93DC4790FAA",
+        "manufacturer_data": {},
+        "service_uuids": []
+    },
+    {
+        "name": null,
+        "address": "0407219A-387C-C2D0-ED69-E11484461085",
+        "manufacturer_data": {},
+        "service_uuids": []
+    },
+    {
+        "name": null,
+        "address": "77628EDE-333B-35AC-622F-25D5C0066E24",
+        "manufacturer_data": {},
+        "service_uuids": []
+    },
+    {
+        "name": null,
+        "address": "170CFA1C-E523-45AD-375C-AFCE36689F50",
+        "manufacturer_data": {},
+        "service_uuids": []
+    },
+    {
+        "name": null,
+        "address": "FD322D9E-31F5-8EDB-AA52-2F0A2DD035CB",
+        "manufacturer_data": {},
+        "service_uuids": []
+    },
+    {
+        "name": null,
+        "address": "1AA3E22B-733E-86B3-E712-88731F121459",
+        "manufacturer_data": {},
+        "service_uuids": []
+    },
+    {
+        "name": "SSKul_10267",
+        "address": "5B6E0049-DD91-E6ED-47E3-723CF8E0D75F",
+        "manufacturer_data": {},
+        "service_uuids": []
+    },
+    {
+        "name": null,
+        "address": "CAE138F3-BE2B-EEC8-F7F2-7B9967BBA56A",
+        "manufacturer_data": {},
+        "service_uuids": []
+    },
+    {
+        "name": null,
+        "address": "204B3DFF-5980-785F-AB4B-63187B6085E5",
+        "manufacturer_data": {},
+        "service_uuids": []
+    },
+    {
+        "name": null,
+        "address": "3609E351-142D-64AE-7F25-EC7455D4458E",
+        "manufacturer_data": {},
+        "service_uuids": []
+    },
+    {
+        "name": null,
+        "address": "616AB906-8C6E-1747-474E-02B97FDE3CC1",
+        "manufacturer_data": {},
+        "service_uuids": []
+    },
+    {
+        "name": null,
+        "address": "854DB4CA-CC4A-8D90-F8D2-ECF986F92816",
+        "manufacturer_data": {},
+        "service_uuids": []
+    },
+    {
+        "name": "SSKul_10102",
+        "address": "3845644B-23F0-8940-C74B-2FC16EA37BC5",
+        "manufacturer_data": {},
+        "service_uuids": []
+    },
+    {
+        "name": null,
+        "address": "921A7D09-35FC-5693-E377-47C8054F24F6",
+        "manufacturer_data": {},
+        "service_uuids": []
+    }
+]
