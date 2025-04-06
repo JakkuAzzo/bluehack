@@ -1,0 +1,842 @@
+[
+    {
+        "name": null,
+        "address": "A9B516FC-841E-C336-4C21-71694F5D6983",
+        "details": [
+            {
+                "name": "Apple Continuity Service",
+                "uuid": "d0611e78-bbb4-4591-a5f8-487910ae4366",
+                "characteristics": [
+                    "8667556c-9a37-4c91-84ed-54ee27d90049"
+                ],
+                "handle": 10
+            },
+            {
+                "name": "Apple Nearby Service",
+                "uuid": "9fa480e0-4967-4542-9390-d343dc5d04ae",
+                "characteristics": [
+                    "af0badb1-5b99-43cd-917a-a77bc549e3cc"
+                ],
+                "handle": 15
+            },
+            {
+                "name": "Battery Service",
+                "uuid": "0000180f-0000-1000-8000-00805f9b34fb",
+                "characteristics": [
+                    "00002a19-0000-1000-8000-00805f9b34fb"
+                ],
+                "handle": 20
+            },
+            {
+                "name": "Current Time Service",
+                "uuid": "00001805-0000-1000-8000-00805f9b34fb",
+                "characteristics": [
+                    "00002a2b-0000-1000-8000-00805f9b34fb",
+                    "00002a0f-0000-1000-8000-00805f9b34fb"
+                ],
+                "handle": 24
+            },
+            {
+                "name": "Device Information",
+                "uuid": "0000180a-0000-1000-8000-00805f9b34fb",
+                "characteristics": [
+                    "00002a29-0000-1000-8000-00805f9b34fb",
+                    "00002a24-0000-1000-8000-00805f9b34fb"
+                ],
+                "handle": 30
+            }
+        ]
+    },
+    {
+        "name": "ELK-BLEDOM0A",
+        "address": "5E8FAE7D-38D6-D776-0D3B-8104FCDF31A5",
+        "details": [
+            {
+                "name": "Vendor specific",
+                "uuid": "0000fff0-0000-1000-8000-00805f9b34fb",
+                "characteristics": [
+                    "0000fff4-0000-1000-8000-00805f9b34fb",
+                    "0000fff3-0000-1000-8000-00805f9b34fb"
+                ],
+                "handle": 4
+            }
+        ]
+    },
+    {
+        "name": "ENVY 6000 series",
+        "address": "149A552B-13CF-0269-FF57-467AE627074E",
+        "details": [
+            {
+                "name": "Hewlett-Packard Company",
+                "uuid": "0000fe78-0000-1000-8000-00805f9b34fb",
+                "characteristics": [
+                    "8fe0b1c0-ea32-11e5-a4fc-0002a5d5c51b",
+                    "17d096e0-ea1f-11e5-9dbc-0002a5d5c51b",
+                    "380c09f8-9665-417a-bb2b-06cb6a76e784",
+                    "262040ed-6f79-41bb-b657-bff4cb49195a",
+                    "58633f16-5cad-46bd-978d-fa0ad01a45ea",
+                    "73fd8f50-626c-4f9b-a52e-b1d226efcf8d"
+                ],
+                "handle": 10
+            },
+            {
+                "name": "Vendor specific",
+                "uuid": "0000fdb4-0000-1000-8000-00805f9b34fb",
+                "characteristics": [
+                    "776f71f0-91aa-4aaf-8d02-c577a378a301",
+                    "e3e03e12-b51a-4834-836a-916a34e4bc36",
+                    "f5fe7b6c-555b-4627-befe-914af6894519",
+                    "4a21865e-6316-4117-98a1-caabe26e49c8",
+                    "19065dfb-dd4d-47d4-95ca-3fe870e2a193"
+                ],
+                "handle": 32
+            },
+            {
+                "name": "Unknown",
+                "uuid": "7365a0ae-e596-129d-d84a-88db1ffbcc04",
+                "characteristics": [
+                    "ddbb8ffd-d1b6-bbb5-0f47-87a23630038b",
+                    "1c7cfacb-7818-c09c-9345-04602070e0cc"
+                ],
+                "handle": 49
+            }
+        ]
+    },
+    {
+        "name": null,
+        "address": "66085957-4616-D000-561C-8C14B628CE3F",
+        "details": []
+    },
+    {
+        "name": null,
+        "address": "FC16BCB5-C91E-08AD-5336-CC2A868BABD2",
+        "details": []
+    },
+    {
+        "name": "ELK-BLEDON",
+        "address": "F0A512C3-8845-7C0C-39EC-2629DA2E9AAF",
+        "details": []
+    },
+    {
+        "name": null,
+        "address": "1E10EB9E-79AC-01E7-C48B-DB6F8C3623B3",
+        "details": []
+    },
+    {
+        "name": "SWAN",
+        "address": "FF0DD8BD-59B4-9F3D-75AD-0788EBEBC33B",
+        "details": []
+    },
+    {
+        "name": null,
+        "address": "9C40D07E-A89F-652B-5EF5-A0E12ECB73B3",
+        "details": []
+    },
+    {
+        "name": null,
+        "address": "A94AFEA6-ABE4-C19B-1A6E-B7652989D168",
+        "details": []
+    },
+    {
+        "name": null,
+        "address": "791200BE-71F9-3E7B-1FC7-5B224370ADDA",
+        "details": []
+    },
+    {
+        "name": null,
+        "address": "30577C97-9C46-6E16-9EBB-40DA65A182AD",
+        "details": [
+            {
+                "name": "Device Information",
+                "uuid": "0000180a-0000-1000-8000-00805f9b34fb",
+                "characteristics": [
+                    "00002a29-0000-1000-8000-00805f9b34fb",
+                    "00002a24-0000-1000-8000-00805f9b34fb"
+                ],
+                "handle": 10
+            },
+            {
+                "name": "Apple Continuity Service",
+                "uuid": "d0611e78-bbb4-4591-a5f8-487910ae4366",
+                "characteristics": [
+                    "8667556c-9a37-4c91-84ed-54ee27d90049"
+                ],
+                "handle": 15
+            },
+            {
+                "name": "Apple Nearby Service",
+                "uuid": "9fa480e0-4967-4542-9390-d343dc5d04ae",
+                "characteristics": [
+                    "af0badb1-5b99-43cd-917a-a77bc549e3cc"
+                ],
+                "handle": 20
+            },
+            {
+                "name": "Battery Service",
+                "uuid": "0000180f-0000-1000-8000-00805f9b34fb",
+                "characteristics": [
+                    "00002a19-0000-1000-8000-00805f9b34fb"
+                ],
+                "handle": 25
+            },
+            {
+                "name": "Current Time Service",
+                "uuid": "00001805-0000-1000-8000-00805f9b34fb",
+                "characteristics": [
+                    "00002a2b-0000-1000-8000-00805f9b34fb",
+                    "00002a0f-0000-1000-8000-00805f9b34fb"
+                ],
+                "handle": 29
+            }
+        ]
+    },
+    {
+        "name": null,
+        "address": "C5BDD309-7425-1079-E954-842783E16252",
+        "details": []
+    },
+    {
+        "name": "Linksys",
+        "address": "D3374C98-F382-D8A7-8B23-01CC75F79D6B",
+        "details": []
+    },
+    {
+        "name": null,
+        "address": "6FEF0329-5395-9489-7DA1-BD108A4FCE55",
+        "details": []
+    },
+    {
+        "name": null,
+        "address": "BD14940D-FBD2-EF92-4772-A9EE057ADFDD",
+        "details": []
+    },
+    {
+        "name": "[LG] webOS TV UQ81006LB",
+        "address": "2B6791A6-B157-A9D6-690B-20E3E15966C9",
+        "details": [
+            {
+                "name": "LG Electronics",
+                "uuid": "0000feb9-0000-1000-8000-00805f9b34fb",
+                "characteristics": [
+                    "00002ab8-0000-1000-8000-00805f9b34fb",
+                    "00002ab9-0000-1000-8000-00805f9b34fb",
+                    "00002abb-0000-1000-8000-00805f9b34fb",
+                    "00002abd-0000-1000-8000-00805f9b34fb",
+                    "00002abe-0000-1000-8000-00805f9b34fb",
+                    "00002abf-0000-1000-8000-00805f9b34fb"
+                ],
+                "handle": 40
+            }
+        ]
+    },
+    {
+        "name": "Nathan Brown-Bennett\u2019s iPad",
+        "address": "445DD9EC-D451-3AC5-358C-FCE2C35FE2BF",
+        "details": []
+    },
+    {
+        "name": ".",
+        "address": "617EF8D8-FE2D-39D3-00E5-F1F7196639E6",
+        "details": [
+            {
+                "name": "Device Information",
+                "uuid": "0000180a-0000-1000-8000-00805f9b34fb",
+                "characteristics": [
+                    "00002a29-0000-1000-8000-00805f9b34fb",
+                    "00002a24-0000-1000-8000-00805f9b34fb"
+                ],
+                "handle": 10
+            },
+            {
+                "name": "Battery Service",
+                "uuid": "0000180f-0000-1000-8000-00805f9b34fb",
+                "characteristics": [
+                    "00002a19-0000-1000-8000-00805f9b34fb"
+                ],
+                "handle": 15
+            },
+            {
+                "name": "Current Time Service",
+                "uuid": "00001805-0000-1000-8000-00805f9b34fb",
+                "characteristics": [
+                    "00002a2b-0000-1000-8000-00805f9b34fb",
+                    "00002a0f-0000-1000-8000-00805f9b34fb"
+                ],
+                "handle": 19
+            },
+            {
+                "name": "Apple Continuity Service",
+                "uuid": "d0611e78-bbb4-4591-a5f8-487910ae4366",
+                "characteristics": [
+                    "8667556c-9a37-4c91-84ed-54ee27d90049"
+                ],
+                "handle": 47
+            },
+            {
+                "name": "Apple Nearby Service",
+                "uuid": "9fa480e0-4967-4542-9390-d343dc5d04ae",
+                "characteristics": [
+                    "af0badb1-5b99-43cd-917a-a77bc549e3cc"
+                ],
+                "handle": 52
+            }
+        ]
+    },
+    {
+        "name": null,
+        "address": "F34A9742-51F2-DCB3-AD28-3C89C92855C5",
+        "details": []
+    },
+    {
+        "name": null,
+        "address": "525795E7-23FC-B223-C240-69D2720C0929",
+        "details": []
+    },
+    {
+        "name": "iPhone",
+        "address": "30577C97-9C46-6E16-9EBB-40DA65A182AD",
+        "details": [
+            {
+                "name": "Device Information",
+                "uuid": "0000180a-0000-1000-8000-00805f9b34fb",
+                "characteristics": [
+                    "00002a29-0000-1000-8000-00805f9b34fb",
+                    "00002a24-0000-1000-8000-00805f9b34fb"
+                ],
+                "handle": 10
+            },
+            {
+                "name": "Apple Continuity Service",
+                "uuid": "d0611e78-bbb4-4591-a5f8-487910ae4366",
+                "characteristics": [
+                    "8667556c-9a37-4c91-84ed-54ee27d90049"
+                ],
+                "handle": 15
+            },
+            {
+                "name": "Apple Nearby Service",
+                "uuid": "9fa480e0-4967-4542-9390-d343dc5d04ae",
+                "characteristics": [
+                    "af0badb1-5b99-43cd-917a-a77bc549e3cc"
+                ],
+                "handle": 20
+            },
+            {
+                "name": "Battery Service",
+                "uuid": "0000180f-0000-1000-8000-00805f9b34fb",
+                "characteristics": [
+                    "00002a19-0000-1000-8000-00805f9b34fb"
+                ],
+                "handle": 25
+            },
+            {
+                "name": "Current Time Service",
+                "uuid": "00001805-0000-1000-8000-00805f9b34fb",
+                "characteristics": [
+                    "00002a2b-0000-1000-8000-00805f9b34fb",
+                    "00002a0f-0000-1000-8000-00805f9b34fb"
+                ],
+                "handle": 29
+            }
+        ]
+    },
+    {
+        "name": "ELK-BLEDON",
+        "address": "F0A512C3-8845-7C0C-39EC-2629DA2E9AAF",
+        "details": []
+    },
+    {
+        "name": null,
+        "address": "5AB50D2A-C0F3-99FB-3B9E-86C0A9EC50D4",
+        "details": []
+    },
+    {
+        "name": null,
+        "address": "F34A9742-51F2-DCB3-AD28-3C89C92855C5",
+        "details": []
+    },
+    {
+        "name": "DMRRBA-004",
+        "address": "D40B4442-95CB-F586-1AF5-9AD17CFBBB5D",
+        "details": [
+            {
+                "name": "Nordic UART Service",
+                "uuid": "6e400001-b5a3-f393-e0a9-e50e24dcca9e",
+                "characteristics": [
+                    "6e400003-b5a3-f393-e0a9-e50e24dcca9e",
+                    "6e400002-b5a3-f393-e0a9-e50e24dcca9e"
+                ],
+                "handle": 12
+            },
+            {
+                "name": "Device Information",
+                "uuid": "0000180a-0000-1000-8000-00805f9b34fb",
+                "characteristics": [
+                    "00002a29-0000-1000-8000-00805f9b34fb",
+                    "00002a26-0000-1000-8000-00805f9b34fb",
+                    "00002a28-0000-1000-8000-00805f9b34fb"
+                ],
+                "handle": 18
+            }
+        ]
+    },
+    {
+        "name": "ELK-BLEDOM0A",
+        "address": "5E8FAE7D-38D6-D776-0D3B-8104FCDF31A5",
+        "details": [
+            {
+                "name": "Vendor specific",
+                "uuid": "0000fff0-0000-1000-8000-00805f9b34fb",
+                "characteristics": [
+                    "0000fff4-0000-1000-8000-00805f9b34fb",
+                    "0000fff3-0000-1000-8000-00805f9b34fb"
+                ],
+                "handle": 4
+            }
+        ]
+    },
+    {
+        "name": null,
+        "address": "6B468168-DFD1-8FCD-2607-BB8D07793D5B",
+        "details": []
+    },
+    {
+        "name": null,
+        "address": "2F07B3B9-1D05-0D37-69FB-5625C3F2D8C7",
+        "details": []
+    },
+    {
+        "name": "[LG] webOS TV UQ81006LB",
+        "address": "2B6791A6-B157-A9D6-690B-20E3E15966C9",
+        "details": [
+            {
+                "name": "LG Electronics",
+                "uuid": "0000feb9-0000-1000-8000-00805f9b34fb",
+                "characteristics": [
+                    "00002ab8-0000-1000-8000-00805f9b34fb",
+                    "00002ab9-0000-1000-8000-00805f9b34fb",
+                    "00002abb-0000-1000-8000-00805f9b34fb",
+                    "00002abd-0000-1000-8000-00805f9b34fb",
+                    "00002abe-0000-1000-8000-00805f9b34fb",
+                    "00002abf-0000-1000-8000-00805f9b34fb"
+                ],
+                "handle": 40
+            }
+        ]
+    },
+    {
+        "name": null,
+        "address": "FC16BCB5-C91E-08AD-5336-CC2A868BABD2",
+        "details": []
+    },
+    {
+        "name": null,
+        "address": "F5A5B0D6-9D20-51B0-3C76-3584EF828CB2",
+        "details": [
+            {
+                "name": "Generic Media Control Service",
+                "uuid": "00001849-0000-1000-8000-00805f9b34fb",
+                "characteristics": [
+                    "00002b93-0000-1000-8000-00805f9b34fb",
+                    "00002b96-0000-1000-8000-00805f9b34fb",
+                    "00002b97-0000-1000-8000-00805f9b34fb",
+                    "00002b98-0000-1000-8000-00805f9b34fb",
+                    "00002b99-0000-1000-8000-00805f9b34fb",
+                    "00002b9a-0000-1000-8000-00805f9b34fb",
+                    "00002b9b-0000-1000-8000-00805f9b34fb",
+                    "00002ba1-0000-1000-8000-00805f9b34fb",
+                    "00002ba2-0000-1000-8000-00805f9b34fb",
+                    "00002ba3-0000-1000-8000-00805f9b34fb",
+                    "00002ba4-0000-1000-8000-00805f9b34fb",
+                    "00002ba5-0000-1000-8000-00805f9b34fb",
+                    "00002bba-0000-1000-8000-00805f9b34fb"
+                ],
+                "handle": 40
+            },
+            {
+                "name": "Generic Telephone Bearer Service",
+                "uuid": "0000184c-0000-1000-8000-00805f9b34fb",
+                "characteristics": [
+                    "00002bb3-0000-1000-8000-00805f9b34fb",
+                    "00002bb4-0000-1000-8000-00805f9b34fb",
+                    "00002bb5-0000-1000-8000-00805f9b34fb",
+                    "00002bb6-0000-1000-8000-00805f9b34fb",
+                    "00002bb9-0000-1000-8000-00805f9b34fb",
+                    "00002bba-0000-1000-8000-00805f9b34fb",
+                    "00002bbb-0000-1000-8000-00805f9b34fb",
+                    "00002bbd-0000-1000-8000-00805f9b34fb",
+                    "00002bbe-0000-1000-8000-00805f9b34fb",
+                    "00002bbf-0000-1000-8000-00805f9b34fb",
+                    "00002bc0-0000-1000-8000-00805f9b34fb",
+                    "00002bc1-0000-1000-8000-00805f9b34fb",
+                    "00002bc2-0000-1000-8000-00805f9b34fb"
+                ],
+                "handle": 90
+            },
+            {
+                "name": "Telephony and Media Audio",
+                "uuid": "00001855-0000-1000-8000-00805f9b34fb",
+                "characteristics": [
+                    "00002b51-0000-1000-8000-00805f9b34fb"
+                ],
+                "handle": 130
+            },
+            {
+                "name": "Unknown",
+                "uuid": "e73e0001-ef1b-4e74-8291-2e4f3164f3b5",
+                "characteristics": [
+                    "e73e0002-ef1b-4e74-8291-2e4f3164f3b5"
+                ],
+                "handle": 134
+            },
+            {
+                "name": "Vendor specific",
+                "uuid": "0000fcf1-0000-1000-8000-00805f9b34fb",
+                "characteristics": [
+                    "fe2c1237-8366-4814-8eb0-01de32100bea"
+                ],
+                "handle": 137
+            },
+            {
+                "name": "Google",
+                "uuid": "0000fef3-0000-1000-8000-00805f9b34fb",
+                "characteristics": [
+                    "00000100-0004-1000-8000-001a11000102",
+                    "00000100-0004-1000-8000-001a11000101"
+                ],
+                "handle": 141
+            }
+        ]
+    },
+    {
+        "name": "ENVY 6000 series",
+        "address": "149A552B-13CF-0269-FF57-467AE627074E",
+        "details": [
+            {
+                "name": "Hewlett-Packard Company",
+                "uuid": "0000fe78-0000-1000-8000-00805f9b34fb",
+                "characteristics": [
+                    "8fe0b1c0-ea32-11e5-a4fc-0002a5d5c51b",
+                    "17d096e0-ea1f-11e5-9dbc-0002a5d5c51b",
+                    "380c09f8-9665-417a-bb2b-06cb6a76e784",
+                    "262040ed-6f79-41bb-b657-bff4cb49195a",
+                    "58633f16-5cad-46bd-978d-fa0ad01a45ea",
+                    "73fd8f50-626c-4f9b-a52e-b1d226efcf8d"
+                ],
+                "handle": 10
+            },
+            {
+                "name": "Vendor specific",
+                "uuid": "0000fdb4-0000-1000-8000-00805f9b34fb",
+                "characteristics": [
+                    "776f71f0-91aa-4aaf-8d02-c577a378a301",
+                    "e3e03e12-b51a-4834-836a-916a34e4bc36",
+                    "f5fe7b6c-555b-4627-befe-914af6894519",
+                    "4a21865e-6316-4117-98a1-caabe26e49c8",
+                    "19065dfb-dd4d-47d4-95ca-3fe870e2a193"
+                ],
+                "handle": 32
+            },
+            {
+                "name": "Unknown",
+                "uuid": "7365a0ae-e596-129d-d84a-88db1ffbcc04",
+                "characteristics": [
+                    "ddbb8ffd-d1b6-bbb5-0f47-87a23630038b",
+                    "1c7cfacb-7818-c09c-9345-04602070e0cc"
+                ],
+                "handle": 49
+            }
+        ]
+    },
+    {
+        "name": null,
+        "address": "21CC1B21-3334-EF92-5FE3-BE5FCEB1D380",
+        "details": []
+    },
+    {
+        "name": null,
+        "address": "1E10EB9E-79AC-01E7-C48B-DB6F8C3623B3",
+        "details": []
+    },
+    {
+        "name": ".",
+        "address": "617EF8D8-FE2D-39D3-00E5-F1F7196639E6",
+        "details": [
+            {
+                "name": "Device Information",
+                "uuid": "0000180a-0000-1000-8000-00805f9b34fb",
+                "characteristics": [
+                    "00002a29-0000-1000-8000-00805f9b34fb",
+                    "00002a24-0000-1000-8000-00805f9b34fb"
+                ],
+                "handle": 10
+            },
+            {
+                "name": "Battery Service",
+                "uuid": "0000180f-0000-1000-8000-00805f9b34fb",
+                "characteristics": [
+                    "00002a19-0000-1000-8000-00805f9b34fb"
+                ],
+                "handle": 15
+            },
+            {
+                "name": "Current Time Service",
+                "uuid": "00001805-0000-1000-8000-00805f9b34fb",
+                "characteristics": [
+                    "00002a2b-0000-1000-8000-00805f9b34fb",
+                    "00002a0f-0000-1000-8000-00805f9b34fb"
+                ],
+                "handle": 19
+            },
+            {
+                "name": "Apple Continuity Service",
+                "uuid": "d0611e78-bbb4-4591-a5f8-487910ae4366",
+                "characteristics": [
+                    "8667556c-9a37-4c91-84ed-54ee27d90049"
+                ],
+                "handle": 47
+            },
+            {
+                "name": "Apple Nearby Service",
+                "uuid": "9fa480e0-4967-4542-9390-d343dc5d04ae",
+                "characteristics": [
+                    "af0badb1-5b99-43cd-917a-a77bc549e3cc"
+                ],
+                "handle": 52
+            }
+        ]
+    },
+    {
+        "name": null,
+        "address": "7496F6CA-F2BE-0FD2-C13A-841EA8F7F2F4",
+        "details": []
+    },
+    {
+        "name": "iPad",
+        "address": "A9B516FC-841E-C336-4C21-71694F5D6983",
+        "details": [
+            {
+                "name": "Apple Continuity Service",
+                "uuid": "d0611e78-bbb4-4591-a5f8-487910ae4366",
+                "characteristics": [
+                    "8667556c-9a37-4c91-84ed-54ee27d90049"
+                ],
+                "handle": 10
+            },
+            {
+                "name": "Apple Nearby Service",
+                "uuid": "9fa480e0-4967-4542-9390-d343dc5d04ae",
+                "characteristics": [
+                    "af0badb1-5b99-43cd-917a-a77bc549e3cc"
+                ],
+                "handle": 15
+            },
+            {
+                "name": "Battery Service",
+                "uuid": "0000180f-0000-1000-8000-00805f9b34fb",
+                "characteristics": [
+                    "00002a19-0000-1000-8000-00805f9b34fb"
+                ],
+                "handle": 20
+            },
+            {
+                "name": "Current Time Service",
+                "uuid": "00001805-0000-1000-8000-00805f9b34fb",
+                "characteristics": [
+                    "00002a2b-0000-1000-8000-00805f9b34fb",
+                    "00002a0f-0000-1000-8000-00805f9b34fb"
+                ],
+                "handle": 24
+            },
+            {
+                "name": "Device Information",
+                "uuid": "0000180a-0000-1000-8000-00805f9b34fb",
+                "characteristics": [
+                    "00002a29-0000-1000-8000-00805f9b34fb",
+                    "00002a24-0000-1000-8000-00805f9b34fb"
+                ],
+                "handle": 30
+            }
+        ]
+    },
+    {
+        "name": null,
+        "address": "4D1B77E1-B96B-9668-9BF6-52F3F3D80F49",
+        "details": []
+    },
+    {
+        "name": null,
+        "address": "6FEF0329-5395-9489-7DA1-BD108A4FCE55",
+        "details": []
+    },
+    {
+        "name": null,
+        "address": "A2AA3A47-4C82-B49A-98AA-3D5FF88A7FBA",
+        "details": [
+            {
+                "name": "Generic Media Control Service",
+                "uuid": "00001849-0000-1000-8000-00805f9b34fb",
+                "characteristics": [
+                    "00002b93-0000-1000-8000-00805f9b34fb",
+                    "00002b96-0000-1000-8000-00805f9b34fb",
+                    "00002b97-0000-1000-8000-00805f9b34fb",
+                    "00002b98-0000-1000-8000-00805f9b34fb",
+                    "00002b99-0000-1000-8000-00805f9b34fb",
+                    "00002b9a-0000-1000-8000-00805f9b34fb",
+                    "00002b9b-0000-1000-8000-00805f9b34fb",
+                    "00002ba1-0000-1000-8000-00805f9b34fb",
+                    "00002ba2-0000-1000-8000-00805f9b34fb",
+                    "00002ba3-0000-1000-8000-00805f9b34fb",
+                    "00002ba4-0000-1000-8000-00805f9b34fb",
+                    "00002ba5-0000-1000-8000-00805f9b34fb",
+                    "00002bba-0000-1000-8000-00805f9b34fb"
+                ],
+                "handle": 40
+            },
+            {
+                "name": "Generic Telephone Bearer Service",
+                "uuid": "0000184c-0000-1000-8000-00805f9b34fb",
+                "characteristics": [
+                    "00002bb3-0000-1000-8000-00805f9b34fb",
+                    "00002bb4-0000-1000-8000-00805f9b34fb",
+                    "00002bb5-0000-1000-8000-00805f9b34fb",
+                    "00002bb6-0000-1000-8000-00805f9b34fb",
+                    "00002bb9-0000-1000-8000-00805f9b34fb",
+                    "00002bba-0000-1000-8000-00805f9b34fb",
+                    "00002bbb-0000-1000-8000-00805f9b34fb",
+                    "00002bbd-0000-1000-8000-00805f9b34fb",
+                    "00002bbe-0000-1000-8000-00805f9b34fb",
+                    "00002bbf-0000-1000-8000-00805f9b34fb",
+                    "00002bc0-0000-1000-8000-00805f9b34fb",
+                    "00002bc1-0000-1000-8000-00805f9b34fb",
+                    "00002bc2-0000-1000-8000-00805f9b34fb"
+                ],
+                "handle": 90
+            },
+            {
+                "name": "Telephony and Media Audio",
+                "uuid": "00001855-0000-1000-8000-00805f9b34fb",
+                "characteristics": [
+                    "00002b51-0000-1000-8000-00805f9b34fb"
+                ],
+                "handle": 130
+            },
+            {
+                "name": "Unknown",
+                "uuid": "e73e0001-ef1b-4e74-8291-2e4f3164f3b5",
+                "characteristics": [
+                    "e73e0002-ef1b-4e74-8291-2e4f3164f3b5"
+                ],
+                "handle": 134
+            },
+            {
+                "name": "Vendor specific",
+                "uuid": "0000fcf1-0000-1000-8000-00805f9b34fb",
+                "characteristics": [
+                    "fe2c1237-8366-4814-8eb0-01de32100bea"
+                ],
+                "handle": 137
+            },
+            {
+                "name": "Google",
+                "uuid": "0000fef3-0000-1000-8000-00805f9b34fb",
+                "characteristics": [
+                    "00000100-0004-1000-8000-001a11000102",
+                    "00000100-0004-1000-8000-001a11000101"
+                ],
+                "handle": 141
+            }
+        ]
+    },
+    {
+        "name": null,
+        "address": "B606A974-D5FF-966C-5DC6-B675261AC42C",
+        "details": [
+            {
+                "name": "Generic Media Control Service",
+                "uuid": "00001849-0000-1000-8000-00805f9b34fb",
+                "characteristics": [
+                    "00002b93-0000-1000-8000-00805f9b34fb",
+                    "00002b96-0000-1000-8000-00805f9b34fb",
+                    "00002b97-0000-1000-8000-00805f9b34fb",
+                    "00002b98-0000-1000-8000-00805f9b34fb",
+                    "00002b99-0000-1000-8000-00805f9b34fb",
+                    "00002b9a-0000-1000-8000-00805f9b34fb",
+                    "00002b9b-0000-1000-8000-00805f9b34fb",
+                    "00002ba1-0000-1000-8000-00805f9b34fb",
+                    "00002ba2-0000-1000-8000-00805f9b34fb",
+                    "00002ba3-0000-1000-8000-00805f9b34fb",
+                    "00002ba4-0000-1000-8000-00805f9b34fb",
+                    "00002ba5-0000-1000-8000-00805f9b34fb",
+                    "00002bba-0000-1000-8000-00805f9b34fb"
+                ],
+                "handle": 40
+            },
+            {
+                "name": "Generic Telephone Bearer Service",
+                "uuid": "0000184c-0000-1000-8000-00805f9b34fb",
+                "characteristics": [
+                    "00002bb3-0000-1000-8000-00805f9b34fb",
+                    "00002bb4-0000-1000-8000-00805f9b34fb",
+                    "00002bb5-0000-1000-8000-00805f9b34fb",
+                    "00002bb6-0000-1000-8000-00805f9b34fb",
+                    "00002bb9-0000-1000-8000-00805f9b34fb",
+                    "00002bba-0000-1000-8000-00805f9b34fb",
+                    "00002bbb-0000-1000-8000-00805f9b34fb",
+                    "00002bbd-0000-1000-8000-00805f9b34fb",
+                    "00002bbe-0000-1000-8000-00805f9b34fb",
+                    "00002bbf-0000-1000-8000-00805f9b34fb",
+                    "00002bc0-0000-1000-8000-00805f9b34fb",
+                    "00002bc1-0000-1000-8000-00805f9b34fb",
+                    "00002bc2-0000-1000-8000-00805f9b34fb"
+                ],
+                "handle": 90
+            },
+            {
+                "name": "Telephony and Media Audio",
+                "uuid": "00001855-0000-1000-8000-00805f9b34fb",
+                "characteristics": [
+                    "00002b51-0000-1000-8000-00805f9b34fb"
+                ],
+                "handle": 130
+            },
+            {
+                "name": "Vendor specific",
+                "uuid": "0000fcf1-0000-1000-8000-00805f9b34fb",
+                "characteristics": [
+                    "fe2c1237-8366-4814-8eb0-01de32100bea"
+                ],
+                "handle": 134
+            },
+            {
+                "name": "Google",
+                "uuid": "0000fef3-0000-1000-8000-00805f9b34fb",
+                "characteristics": [
+                    "00000100-0004-1000-8000-001a11000102",
+                    "00000100-0004-1000-8000-001a11000101"
+                ],
+                "handle": 138
+            }
+        ]
+    },
+    {
+        "name": "Linksys",
+        "address": "D3374C98-F382-D8A7-8B23-01CC75F79D6B",
+        "details": []
+    },
+    {
+        "name": null,
+        "address": "2158DE1B-ABFA-ECAD-3CDD-983CA0391534",
+        "details": []
+    },
+    {
+        "name": null,
+        "address": "791200BE-71F9-3E7B-1FC7-5B224370ADDA",
+        "details": []
+    },
+    {
+        "name": null,
+        "address": "16E7FA24-0AD7-3ECB-DF11-9E4EDAEEE0BC",
+        "details": []
+    }
+]

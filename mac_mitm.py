@@ -38,10 +38,15 @@ class MacMITMProxy:
         self.peripheral_manager = self.setup_peripheral_manager()
 
     async def connect_to_target(self):
-        await self.client.connect()
+        try:
+            await self.client.connect()
+        except Exception as e:
+            logging.error("Failed to connect to target (%s): %s", self.target_address, e)
+            return False
         self.target_services = await self.client.get_services()
         logging.info("Connected to target: %s", self.target_address)
         logging.info("Discovered Services: %s", self.target_services)
+        return True
 
     def setup_peripheral_manager(self):
         # Using pyobjc to create a CBPeripheralManager instance
@@ -81,7 +86,10 @@ class MacMITMProxy:
             logging.error("Error forwarding write: %s", e)
 
     async def run(self):
-        await self.connect_to_target()
+        connected = await self.connect_to_target()
+        if not connected:
+            logging.error("Target device not found; please verify the address and ensure the device is available.")
+            return
         try:
             while True:
                 await asyncio.sleep(1)
