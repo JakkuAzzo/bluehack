@@ -1,3 +1,5 @@
+import os
+import json
 import asyncio
 import logging
 from bleak import BleakClient
@@ -6,7 +8,6 @@ from Foundation import NSObject, NSLog
 # Import CoreBluetooth classes via pyobjc
 objc.loadBundle("CoreBluetooth", globals(), bundle_path="/System/Library/Frameworks/CoreBluetooth.framework")
 
-# Renamed delegate to avoid conflict with Bleak's PeripheralDelegate.
 class MITMPeripheralDelegate(NSObject):
     # This delegate intercepts BLE events from the central.
     def initWithMITMProxy_(self, proxy):
@@ -26,11 +27,10 @@ class MITMPeripheralDelegate(NSObject):
 
     # Additional delegate methods can be defined here.
 
-# MITM Proxy Class
 class MacMITMProxy:
     def __init__(self, target_address):
         self.target_address = target_address
-        self.client = BleakClient(target_address)
+        self.client = BleakClient(self.target_address)
         self.target_services = None
         # Setup logging
         logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(message)s")
@@ -85,18 +85,56 @@ class MacMITMProxy:
         except Exception as e:
             logging.error("Error forwarding write: %s", e)
 
+    def analyze_target_services(self):
+        """After connection, check discovered services against known profiles."""
+        logging.info("Analyzing target services using Bluetooth SIG data...")
+        profiles_dir = os.path.join(os.getcwd(), "bluetooth-sig-public-jsons", "profiles_and_services")
+        if not os.path.isdir(profiles_dir):
+            logging.warning("Profiles and services directory not found at %s.", profiles_dir)
+            return
+        for service in self.target_services:
+            service_uuid = service.uuid.lower()
+            found_profile = None
+            # Scan through available profile JSON files
+            for filename in os.listdir(profiles_dir):
+                if filename.endswith(".json"):
+                    profile_path = os.path.join(profiles_dir, filename)
+                    try:
+                        with open(profile_path, "r") as f:
+                            data = json.load(f)
+                        profile_uuid = data.get("uuid", "").lower()
+                        if profile_uuid == service_uuid:
+                            found_profile = data
+                            break
+                    except Exception as e:
+                        logging.error("Error loading profile %s: %s", filename, e)
+            if found_profile:
+                logging.info("Service %s matches profile: %s", service_uuid, found_profile.get("name"))
+                recs = found_profile.get("recommended_commands", [])
+                if recs:
+                    logging.info("Recommended commands: %s", recs)
+                    # (Optional) Here you might prompt the user to execute one of these commands.
+            else:
+                logging.info("No matching profile found for service %s", service_uuid)
+
     async def run(self):
         connected = await self.connect_to_target()
         if not connected:
             logging.error("Target device not found; please verify the address and ensure the device is available.")
             return
+        # Analyze discovered services against known profiles
+        self.analyze_target_services()
+        logging.info("MITM Proxy running. Press Ctrl+C to exit.")
         try:
             while True:
                 await asyncio.sleep(1)
-        except KeyboardInterrupt:
-            logging.info("MITM Proxy shutting down.")
-            await self.client.disconnect()
-            # Stop advertising as needed.
+        except (KeyboardInterrupt, asyncio.CancelledError):
+            logging.info("Shutdown signal detected. Shutting down MITM Proxy gracefully.")
+        finally:
+            if self.client.is_connected:
+                await self.client.disconnect()
+                logging.info("Disconnected from target.")
+            # Here you can also stop any advertising if necessary.
 
 if __name__ == "__main__":
     import sys
