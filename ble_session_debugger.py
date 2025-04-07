@@ -52,6 +52,17 @@ def handle_notification(sender, data):
         decoded = data
     print(f"\n[Notification] {sender}: {decoded}")
 
+async def ensure_connected(client):
+    if not client.is_connected:
+        print("Reconnecting to target...")
+        try:
+            await client.connect()
+            print("Reconnected.")
+        except Exception as e:
+            print(f"Reconnection failed: {e}")
+            return False
+    return True
+
 async def start_debugger(client, services):
     writable_chars = find_writable_characteristics(services)
     notifiable_chars = find_notifiable_characteristics(services)
@@ -62,6 +73,8 @@ async def start_debugger(client, services):
         choice = input("Choose an option: ").strip().lower()
 
         if choice == "a":
+            if not await ensure_connected(client):
+                continue
             idx = int(input("Select characteristic index to listen to: ")) - 1
             char = notifiable_chars[idx]
             await client.start_notify(char.uuid, handle_notification)
@@ -73,6 +86,8 @@ async def start_debugger(client, services):
                 await client.stop_notify(char.uuid)
 
         elif choice == "b":
+            if not await ensure_connected(client):
+                continue
             for char in notifiable_chars:
                 await client.start_notify(char.uuid, handle_notification)
             print("Listening to all notifiable characteristics...")
@@ -84,20 +99,30 @@ async def start_debugger(client, services):
                     await client.stop_notify(char.uuid)
 
         elif choice == "c":
+            if not await ensure_connected(client):
+                continue
             all_or_one = input("Send to (a)ll or (o)ne? ").strip().lower()
             if all_or_one == "a":
                 for char in writable_chars:
                     for payload in test_payloads:
-                        await client.write_gatt_char(char.uuid, payload)
-                        print(f"Sent to {char.uuid}: {payload}")
+                        try:
+                            await client.write_gatt_char(char.uuid, payload)
+                            print(f"Sent to {char.uuid}: {payload}")
+                        except Exception as e:
+                            print(f"Failed to write to {char.uuid}: {e}")
             else:
                 idx = int(input("Select characteristic index to send to: ")) - 1
                 char = writable_chars[idx]
                 for payload in test_payloads:
-                    await client.write_gatt_char(char.uuid, payload)
-                    print(f"Sent to {char.uuid}: {payload}")
+                    try:
+                        await client.write_gatt_char(char.uuid, payload)
+                        print(f"Sent to {char.uuid}: {payload}")
+                    except Exception as e:
+                        print(f"Failed to write to {char.uuid}: {e}")
 
         elif choice == "d":
+            if not await ensure_connected(client):
+                continue
             raw = input("Enter custom payload (string or hex like 0xDEADBEEF): ")
             if raw.startswith("0x"):
                 payload = bytes.fromhex(raw[2:])
@@ -106,13 +131,19 @@ async def start_debugger(client, services):
             all_or_one = input("Send to (a)ll or (o)ne? ").strip().lower()
             if all_or_one == "a":
                 for char in writable_chars:
-                    await client.write_gatt_char(char.uuid, payload)
-                    print(f"Sent to {char.uuid}: {payload}")
+                    try:
+                        await client.write_gatt_char(char.uuid, payload)
+                        print(f"Sent to {char.uuid}: {payload}")
+                    except Exception as e:
+                        print(f"Failed to write to {char.uuid}: {e}")
             else:
                 idx = int(input("Select characteristic index to send to: ")) - 1
                 char = writable_chars[idx]
-                await client.write_gatt_char(char.uuid, payload)
-                print(f"Sent to {char.uuid}: {payload}")
+                try:
+                    await client.write_gatt_char(char.uuid, payload)
+                    print(f"Sent to {char.uuid}: {payload}")
+                except Exception as e:
+                    print(f"Failed to write to {char.uuid}: {e}")
 
         elif choice == "e":
             print("Exiting BLE debugger...")
