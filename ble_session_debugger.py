@@ -27,6 +27,7 @@ def print_menu(writable, notifiable):
     print("B. Listen for all notifiable characteristics")
     print("C. Send pre-made test payloads to all or one")
     print("D. Send custom payload")
+    print("M. Mimic device behavior (advertise services/characteristics)")
     print("E. Exit debugger")
 
 def find_writable_characteristics(services):
@@ -63,6 +64,16 @@ async def ensure_connected(client):
             return False
     return True
 
+async def mimic_device_behavior(services):
+    print("\n[!] Mimic Mode Activated")
+    print("This would normally configure your adapter to advertise the same services/characteristics...")
+    print("Detected services:")
+    for service in services:
+        print(f"  Service: {service.uuid}")
+        for char in service.characteristics:
+            print(f"    Characteristic: {char.uuid} | Properties: {char.properties}")
+    print("(NOTE: This is a placeholder for future peripheral emulation)")
+
 async def start_debugger(client, services):
     writable_chars = find_writable_characteristics(services)
     notifiable_chars = find_notifiable_characteristics(services)
@@ -78,11 +89,14 @@ async def start_debugger(client, services):
             idx = int(input("Select characteristic index to listen to: ")) - 1
             char = notifiable_chars[idx]
             await client.start_notify(char.uuid, handle_notification)
-            print(f"Listening to {char.uuid}... press Ctrl+C to stop.")
+            print(f"Listening to {char.uuid}... Press Enter to stop.")
             try:
                 while True:
-                    await asyncio.sleep(1)
-            except KeyboardInterrupt:
+                    await asyncio.sleep(0.5)
+                    if input("Press Enter to stop listening... (leave blank to continue): ") == "":
+                        continue
+                    break
+            finally:
                 await client.stop_notify(char.uuid)
 
         elif choice == "b":
@@ -90,11 +104,14 @@ async def start_debugger(client, services):
                 continue
             for char in notifiable_chars:
                 await client.start_notify(char.uuid, handle_notification)
-            print("Listening to all notifiable characteristics...")
+            print("Listening to all notifiable characteristics... Press Enter to stop.")
             try:
                 while True:
-                    await asyncio.sleep(1)
-            except KeyboardInterrupt:
+                    await asyncio.sleep(0.5)
+                    if input("Press Enter to stop listening... (leave blank to continue): ") == "":
+                        continue
+                    break
+            finally:
                 for char in notifiable_chars:
                     await client.stop_notify(char.uuid)
 
@@ -144,6 +161,9 @@ async def start_debugger(client, services):
                     print(f"Sent to {char.uuid}: {payload}")
                 except Exception as e:
                     print(f"Failed to write to {char.uuid}: {e}")
+
+        elif choice == "m":
+            await mimic_device_behavior(services)
 
         elif choice == "e":
             print("Exiting BLE debugger...")
